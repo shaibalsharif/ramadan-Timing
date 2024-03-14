@@ -1,15 +1,13 @@
 import React from 'react'
 
-const SahriCard = ({text,time}) => {
+const SahriCard = ({ text, time }) => {
 
     return (
         <div className=''>
-  <h2 className="title-header text-center pt-56 ">{text}</h2>
+            <h2 className="title-header text-center pt-56 ">{text}</h2>
             <div className="digitalClock  ">
                 <div className="timer">
-                    <div className="time">TIME
 
-                    </div>
                     <div id="hours" className="t">
                         {time?.hours}<br />
                         hours
@@ -27,7 +25,7 @@ const SahriCard = ({text,time}) => {
 
                 </div>
                 <div className="boxOne">
-                  
+
                 </div>
                 <div className="boxTwo">
 

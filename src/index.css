@@ -53,13 +53,13 @@
   .digitalClock {
     margin: 5px;
     margin-top: 15%;
-    width: 90%;
+   
     height: 100px;
     border-radius: 10px;
     background-color: #ffffff;
-    margin-left: 20px;
     padding-top: 12px;
     z-index: 3;
+@apply mx-auto  w-[80%] md:w-[50%]
   }
   .title-header{
    @apply !font-bold !text-5xl !text-center  text-white w-full mx-auto 

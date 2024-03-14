@@ -6,9 +6,7 @@ const IfterCard = ({ text, time }) => {
   <h2 className="title-header text-center pt-56 ">{text}</h2>
             <div className="digitalClock  ">
                 <div className="timer">
-                    <div className="time">TIME
-
-                    </div>
+                    
                     <div id="hours" className="t">
                         {time?.hours}<br />
                         hours

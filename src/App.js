@@ -3,9 +3,10 @@ import './App.css';
 import { ramadan_data } from './data';
 import IfterCard from './IfterCard';
 import SahriCard from './SahriCard';
+import axios from 'axios';
 
-const iftertext ="ইফতার এর বাকি "
-const sahritext ="সেহরির  বাকি "
+const iftertext = "ইফতার এর বাকি "
+const sahritext = "সেহরির  বাকি "
 
 const calculate_hrs_mins = (differenceInMilliseconds) => {
   const hours = Math.floor((differenceInMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) - 12;
@@ -79,17 +80,24 @@ const App = () => {
 
     return () => clearInterval(interval);
   }, [current_data]);
-
+  useEffect(() => {
+    axios.get("https://api.aladhan.com/v1/timingsByCity/14-03-2024?city=Dhaka&country=Bangladesh&method=8")
+      .then(res => {
+        console.log(res.data);
+      })
+  }, [])
   if (!timeRemaining) {
     return null; // Or loading indicator
   }
+  
+
 
   return (
     <div className="h-screen w-full bg-[#52525256] overflow-hidden">
       {timeRemaining.type === 'sahri' ? (
-        <SahriCard text={timeRemaining.type=='sahri'?sahritext:""} time={timeRemaining.time.sahri} />
+        <SahriCard text={timeRemaining.type == 'sahri' ? sahritext : ""} time={timeRemaining.time.sahri} />
       ) : (
-        <IfterCard text={timeRemaining.type=='ifter'?iftertext:""} time={timeRemaining.time.ifter} />
+        <IfterCard text={timeRemaining.type == 'ifter' ? iftertext : ""} time={timeRemaining.time.ifter} />
       )}
     </div>
   );
